@@ -2,9 +2,16 @@ import cv2
 from ultralytics import YOLO
 
 model = YOLO("yolov10s.pt")
+
+def get_class_indices(model, class_names):
+
+    class_indices = [i for i, name in enumerate(model.names) if name in class_names]
+
+    return class_indices
 def predict(chosen_model, img, classes=[], conf=0.5):
     if classes:
-        results = chosen_model.predict(img, classes=classes, conf=conf)
+        class_indices = get_class_indices(chosen_model, classes)
+        results = chosen_model.predict(img, classes=class_indices, conf=conf)
     else:
         results = chosen_model.predict(img, conf=conf)
 
@@ -37,16 +44,25 @@ output_filename = ".//output.mp4"
 video_path = r".//d.mp4"
 cap = cv2.VideoCapture(video_path)
 writer = create_video_writer(cap, output_filename)
-specific_classes = ['person', 'car', 'traffic light']
-while True:
-    success, img = cap.read()
-    if not success:
+specific_classes = ['person', 'car']
+while cap.isOpened():
+    # Read a frame from the video
+    success, frame = cap.read()
+
+    if success:
+        # Run YOLO inference on the frame
+        results = model(frame)
+
+        # Visualize the results on the frame
+        annotated_frame = results[0].plot()
+
+        # Display the annotated frame
+        cv2.imshow("YOLO Inference", annotated_frame)
+
+        # Break the loop if 'q' is pressed
+        if cv2.waitKey(1) & 0xFF == ord("q"):
+            break
+    else:
+        # Break the loop if the end of the video is reached
         break
-    
-    result_img, _ = predict_and_detect(model, img, classes = [], conf=0.5)
-    resized = cv2.resize(result_img, (1280, 720))
-    writer.write(resized)
-    cv2.imshow("Image", resized)
-    
-    cv2.waitKey(1)
 writer.release()
