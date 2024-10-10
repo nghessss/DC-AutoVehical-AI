@@ -34,7 +34,7 @@ Video Demo: [[[Video link](https://drive.google.com/drive/folders/1Sh1HZ18f4VM1X
 1. Prepare your input video
 2. Run the main script:
    ```
-   python main.py
+   python detect.py
    ```
 3. Enter the path to your input video when prompted
 4. Specify the output video name
