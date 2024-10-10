@@ -1,0 +1,12 @@
+person
+red light
+stop sign
+train
+truck
+fire hydrant
+horse
+crosswalk
+elephant
+bear
+giraffe
+

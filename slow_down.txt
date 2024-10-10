@@ -1,0 +1,17 @@
+bicycle
+motorcycle
+yellow light
+green light
+zebra
+cow
+dog
+horse
+airplane
+bird
+backpack
+umbrella
+handbag
+chair
+bus
+car
+bus

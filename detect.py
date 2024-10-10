@@ -41,7 +41,6 @@ def annotate_frame(frame, results, box_color=(0, 255, 0), label_color=(0, 255, 0
             class_name = result.names[cls]  
             if class_name == 'traffic light':
                 # Perform traffic light classification
-                print(y1, y2, x1, x2)
                 if y2 - y1 > 20 and x2 - x1 > 20:
                     class_name = get_traffic_light_color(frame[y1:y2, x1:x2])
                 
@@ -65,9 +64,16 @@ def process_detections(results, stop_list, slow_down_list):
             if class_name in stop_list:
                 print(f"Detected {class_name}, Stop!")
                 return
-            elif class_name in slow_down_list:
+    for result in results:
+        boxes = result.boxes  # Bounding boxes
+        for box in boxes:
+            # Extract bounding box coordinates
+            class_id = int(box.cls[0])
+            class_name = result.names[class_id]
+            if class_name in slow_down_list:
                 print(f"Detected {class_name}, Slow Down!")
                 return
+    return 
 def read_list_from_file(file_path):
     """
     Read a list of items from a text file.
