@@ -55,4 +55,4 @@ This project implements an advanced object detection and decision-making system 
 ## Contact
 Vo Thanh Nghia - vothanhnghia270604@gmail.com
 
-Project Link: [Your GitHub repository link]
+Project Link: [[Project link](https://github.com/nghessss/DC-AutoVehical-AI/)]
