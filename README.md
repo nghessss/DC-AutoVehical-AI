@@ -5,7 +5,8 @@ This project implements an advanced object detection and decision-making system 
 1. Detecting known objects in video footage
 2. Detecting novel objects in video (research stage)
 3. Making collision-avoidance decisions during navigation
-
+## Video demo
+Video Demo: [[[Video link](https://drive.google.com/drive/folders/1Sh1HZ18f4VM1XCesmiQOQUzdDx1xvDcq?usp=sharing)]]
 ## Features
 - Utilizes YOLOv10-Small for efficient, real-time object detection
 - Implements specialized crosswalk detection
