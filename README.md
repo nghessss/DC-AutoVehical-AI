@@ -1,6 +1,6 @@
 # DC-AutoVehical-AI
 ## Overview
-This project implements an advanced object detection and decision-making system for autonomous vehicles, developed by Delta Cognition. It focuses on enhancing vehicle performance in rural and unfamiliar environments through three main tasks:
+This project implements an advanced object detection and decision-making system for autonomous vehicles. It focuses on enhancing vehicle performance in rural and unfamiliar environments through three main tasks:
 
 1. Detecting known objects in video footage
 2. Detecting novel objects in video (research stage)
